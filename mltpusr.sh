@@ -8,8 +8,8 @@ fi
 apt-get install pwgen
 apt-get install whois  #poso aquest paquet perque algunes ordres el requereixen
 echo -n "Num usuaris que es volen crear, màx 30: "
-read n_usr
-if (( $n_usr < 1 )) || (( $n_usr > 30 ))
+read numUs
+if (( $numUs < 1 )) || (( $numUs > 30 ))
 then
 	echo "Error, no es poden crear més de 30 usuaris"
 	exit 1
@@ -25,7 +25,7 @@ if (( $? != 0 ))
 	fi
 echo "Format de la llista: Nom d'usuari  Contrasenya  UID" >> /root/$nom 
 
-for (( x=1; x<=$n_usr; x++ )) 
+for (( x=1; x<=$numUsr; x++ )) 
 	do
 	contra=$(pwgen 10 1)
 	nomComplet=$nom$x.clot
